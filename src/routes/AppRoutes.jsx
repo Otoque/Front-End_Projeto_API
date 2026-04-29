@@ -1,38 +1,31 @@
-// src/routes/AppRoutes.jsx
-
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 import Login from "../pages/Login";
 
 import DashboardAluno from "../pages/dashboard/DashboardAluno";
-import DashboardAdmin from "../pages/dashboard/DashboardAdmin";
 import DashboardCoordenador from "../pages/dashboard/DashboardCoordenador";
+import DashboardAdmin from "../pages/dashboard/DashboardAdmin";
+
+import PerfilAluno from "../pages/perfil/PerfilAluno";
+import PerfilCoordenador from "../pages/perfil/PerfilCoordenador";
+import PerfilAdmin from "../pages/perfil/PerfilAdmin";
 
 export default function AppRoutes() {
   return (
     <BrowserRouter>
       <Routes>
-        {/* Login */}
+        <Route path="/" element={<Navigate to="/login" replace />} />
         <Route path="/login" element={<Login />} />
 
         {/* Dashboards */}
-        <Route
-          path="/dashboard/dashboardaluno"
-          element={<DashboardAluno />}
-        />
+        <Route path="/dashboard/aluno" element={<DashboardAluno />} />
+        <Route path="/dashboard/coordenador" element={<DashboardCoordenador />} />
+        <Route path="/dashboard/admin" element={<DashboardAdmin />} />
 
-        <Route
-          path="/dashboard/dashboardadmin"
-          element={<DashboardAdmin />}
-        />
-
-        <Route
-          path="/dashboard/dashboardcoordenador"
-          element={<DashboardCoordenador />}
-        />
-
-        {/* Qualquer rota vai para login */}
-        <Route path="*" element={<Navigate to="/login" replace />} />
+        {/* Perfis */}
+        <Route path="/perfil/aluno" element={<PerfilAluno />} />
+        <Route path="/perfil/coordenador" element={<PerfilCoordenador />} />
+        <Route path="/perfil/admin" element={<PerfilAdmin />} />
       </Routes>
     </BrowserRouter>
   );

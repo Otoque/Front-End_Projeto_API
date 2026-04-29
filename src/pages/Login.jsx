@@ -12,11 +12,11 @@ export default function Login() {
     e.preventDefault();
 
     if (tipo === "aluno") {
-      navigate("/dashboard/dashboardaluno");
+      navigate("/dashboard/aluno");
     } else if (tipo === "admin") {
-      navigate("/dashboard/dashboardadmin");
+      navigate("/dashboard/admin");
     } else if (tipo === "coordenador") {
-      navigate("/dashboard/dashboardcoordenador");
+      navigate("/dashboard/coordenador");
     } else {
       alert("Selecione um perfil");
     }
